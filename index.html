@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ronak Mankale | Portfolio</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #2563eb;        /* blue‑600  */
+        --primary-dark: #1e40af;  /* blue‑800  */
+        --bg: #f9fafb;            /* gray‑50   */
+        --text: #111827;          /* gray‑900  */
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        background: var(--bg);
+        color: var(--text);
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 0;
+      }
+
+      /* ─── Navigation ────────────────────────────────────────────── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      /* Hamburger */
+      .menu-btn {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      .menu-btn span {
+        width: 24px;
+        height: 3px;
+        background: var(--text);
+        transition: 0.3s;
+      }
+
+      /* Nav links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover { color: var(--primary); }
+
+      /* Mobile nav */
+      @media (max-width: 768px) {
+        .menu-btn { display: flex; }
+        .nav-links {
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 1rem;
+          width: 200px;
+          background: #fff;
+          padding: 1rem 0.5rem;
+          border: 1px solid #e5e7eb;
+          border-radius: 0.5rem;
+          transform: translateY(-200%);
+          opacity: 0;
+          pointer-events: none;
+          transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-links.open {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      /* ─── Hero ──────────────────────────────────────────────────── */
+      #home {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+        text-align: center;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      }
+      #home h1   { font-size: 2.8rem; margin-bottom: 1rem; }
+      #home p    { max-width: 700px; font-size: 1.125rem; margin: 0 auto; }
+
+      /* ─── Sections ─────────────────────────────────────────────── */
+      section     { padding: 4rem 0; }
+      section h2  { text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-dark); }
+
+      /* About */
+      #about p { max-width: 800px; margin: 0 auto; font-size: 1.05rem; }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .skill {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      /* Education */
+      .edu-item {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+      }
+      .edu-item span { font-weight: 600; }
+
+      /* Projects */
+      .project {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Awards & extras */
+      .list {
+        list-style: disc inside;
+        max-width: 390px;
+        margin: 0 auto;
+      }
+
+      /* Contact */
+      .contact-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #contact a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+      /* Footer */
+      footer {
+        background: #111827;
+        color: #9ca3af;
+        text-align: center;
+        padding: 1.5rem 0;
+        font-size: 0.875rem;
+      }
+
+      /* Small hero text */
+      @media (max-width: 640px) { #home h1 { font-size: 2rem; } }
+    </style>
+  </head>
+  <body>
+    <!-- ─── Navigation ───────────────────────────────────────────── -->
+    <nav>
+      <div class="container">
+        <div class="logo">Ronak Mankale</div>
+
+        <button id="menuToggle" class="menu-btn" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul id="navLinks" class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─── Hero ─────────────────────────────────────────────────── -->
+    <header id="home">
+      <div class="container">
+        <h1>Hello, I'm Ronak</h1>
+        <p>Motivated IT Graduate passionate about turning ideas into impactful tech solutions.</p>
+      </div>
+    </header>
+
+    <!-- ─── About ────────────────────────────────────────────────── -->
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          Motivated IT Graduate with a strong passion for technology and problem‑solving. I thrive in environments
+          that foster learning and enable practical application of my skills. With a solid understanding of
+          modern technology principles and operations, I'm keen to contribute to organisational growth by delivering
+          innovative and efficient solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Skills ───────────────────────────────────────────────── -->
+    <section id="skills">
+      <div class="container">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">SQL</div>
+          <div class="skill">Python</div>
+          <div class="skill">Java</div>
+          <div class="skill">Excel</div>
+          <div class="skill">Tableau</div>
+          <div class="skill">C++</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Education ────────────────────────────────────────────── -->
+    <section id="education">
+      <div class="container">
+        <h2>Education</h2>
+
+        <div class="edu-item">
+          <span>2020 – 2023</span><br />
+          <strong>B.Sc. in Information Technology</strong><br />
+          St. Xavier's College, Mumbai
+        </div>
+
+        <div class="edu-item">
+          <span>2017 – 2019</span><br />
+          Higher Secondary in Science<br />
+          Chandibai Mansukhani College
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Projects ─────────────────────────────────────────────── -->
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <div class="project">
+          <h3>Multiplayer Horror RPG Game</h3>
+          <p>
+            Designed and developed a fully immersive multiplayer horror RPG as my final‑year capstone project.<br />
+            <em>Front End:</em> Core game‑dev software &nbsp;|&nbsp; <em>Back End:</em> LUA<br />
+            Led the six‑month project from concept to completion, honing skills in game development,
+            problem‑solving, and collaborative teamwork.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Awards & Extras ──────────────────────────────────────── -->
+    <section id="awards">
+      <div class="container">
+        <h2>Personal Information</h2>
+        <ul class="list">
+          <li>Languages: English, Hindi, Marathi, Konkani</li>
+          <li>Hobbies: Guitar, Singing, Dancing, Gaming</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── Contact ──────────────────────────────────────────────── -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-card">
+          <p>Email: <a href="mailto:ronakmankale17@gmail.com">ronakmankale17@gmail.com</a></p>
+          <p>Phone: <a href="tel:+917387188781">+91 73871 88781</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/ronakmankale" target="_blank" rel="noopener">linkedin.com/in/ronakmankale</a></p>
+          <p>Location: Ambernath, Maharashtra, India</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Footer ──────────────────────────────────────────────── -->
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Ronak Mankale. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- ─── Scripts ─────────────────────────────────────────────── -->
+    <script>
+      /* Dynamic year */
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* Mobile menu toggle */
+      const menuBtn  = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      /* Close menu when a link is clicked (mobile) */
+      navLinks.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => navLinks.classList.remove("open"))
+      );
+    </script>
+  </body>
+</html>
+```
